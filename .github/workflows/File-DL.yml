@@ -37,10 +37,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y aria2 zip curl
 
-      - name: AVASAM Downloader - https://avasam.ir
+      - name:  Downloader 
         run: |
-          echo "🏷️  AVASAM - Your Download Solution"
-          echo "🌐 https://avasam.ir"
+          echo "🏷️  Your Download Solution"
+          echo "🌐 "
           echo ""
 
       - name: Download files
@@ -166,8 +166,7 @@ jobs:
               echo ""
               echo "---"
               echo ""
-              echo "*This tool created by [avasam.ir](https://avasam.ir)*"
-            } > "downloads/$FOLDER_NAME/README.md"
+               } > "downloads/$FOLDER_NAME/README.md"
             echo "Error file created: downloads/$FOLDER_NAME/README.md"
           }
 
@@ -283,7 +282,7 @@ jobs:
                 echo ""
                 echo "---"
                 echo ""
-                echo "*This tool created by [avasam.ir](https://avasam.ir)*"
+                
               } > "downloads/$FOLDER_NAME/README.md"
             fi
             rm -rf tmp_downloads
@@ -403,7 +402,7 @@ jobs:
                   echo ""
                   echo "---"
                   echo ""
-                  echo "*This tool created by [avasam.ir](https://avasam.ir)*"
+                
                 } > "downloads/${FOLDER_NAME}/README.md"
               fi
             done
@@ -434,7 +433,7 @@ jobs:
             echo ""
             echo "---"
             echo ""
-            echo "*This tool created by [avasam.ir](https://avasam.ir)*"
+         
           } > "downloads/README.md"
 
           echo "downloads/README.md created with list of downloaded files"
@@ -473,13 +472,13 @@ jobs:
 
           echo "README.md updated with download links"
 
-      - name: Commit & Push in batches of 5 files (AVASAM)
+      - name: Commit & Push in batches of 5 files
         run: |
           BRANCH="${GITHUB_REF_NAME}"
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          echo "AVASAM (https://avasam.ir) - Preparing to commit files"
+          echo "  Preparing to commit files"
 
           git add README.md
           git add downloads/README.md
@@ -513,7 +512,7 @@ jobs:
             fi
 
             if [ -n "$(git diff --cached --name-only)" ]; then
-              git commit -m "[AVASAM] Add downloaded files - batch $BATCH_NUM [skip ci]"
+              git commit -m " Add downloaded files - batch $BATCH_NUM [skip ci]"
               git pull --rebase origin "$BRANCH"
               git push origin HEAD:"$BRANCH"
               echo "Batch $BATCH_NUM pushed"
@@ -522,4 +521,4 @@ jobs:
             fi
           done
 
-          echo "All $TOTAL files pushed in $BATCH_NUM batch(es) - AVASAM (https://avasam.ir)"
+          echo "All $TOTAL files pushed in $BATCH_NUM batch(es) "
